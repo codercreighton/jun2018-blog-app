@@ -7,7 +7,7 @@
 
 <p>
   <strong>Author:</strong>
-  <%= @post.author %>
+  <%= @post.user.email %>
 </p>
 
 <p>
@@ -15,8 +15,9 @@
   <%= @post.blog_entry %>
 </p>
 
-<%= link_to 'Edit', edit_post_path(@post) %> 
-
+<% if @post.user_id == current_user.id %>
+	<%= link_to 'Edit', edit_post_path(@post) %> 
+<% end %>
 
 <div id="comments">
 	<%= render 'comments/form', comment: @comment %>
@@ -24,7 +25,7 @@
 	<h4>What others have said:</h4>
 	<% @post.comments.each do |comment| %>
 		<p>
-			<%= comment.author %> said...<br/>
+			<%= comment.user.email %> said...<br/>
 			<%= comment.comment_entry %>
 		</p>	
 	<% end %>

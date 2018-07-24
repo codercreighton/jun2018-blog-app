@@ -1,10 +1,18 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+
+  #Returns only the posts written by a specific user
+  def user_posts
+    @user = User.find_by(username: params[:name])
+    # @posts = Post.where(user_id: params[:user_id]).page(params[:page])
+  end 
+
+
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page])
   end
 
   # GET /posts/1

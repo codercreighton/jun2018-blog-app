@@ -1,13 +1,11 @@
-<p id="notice"><%= notice %></p>
+<center><h1>Words of <%= @user.username %></h1></center>
 
-<center><h1>Words of the Hippy</h1></center>
-
- <% @posts.each do |post| %>
+ <% @user.posts.each do |post| %>
  
     <div class="panel panel-default">
       <div class="panel-heading">
         <h2 class="panel-title"><%= post.title.html_safe %></h2>
-        <p class="panel-creator"> <%= image_tag post.user.avatar.thumb %>Creator: <%= link_to post.user.username, user_posts_path(name: post.user.username) %> on <%= post.created_at.strftime('%B %e, %Y at %l:%M %P') %></p>
+        <p class="panel-creator"> <%= image_tag post.user.avatar.thumb %>Creator: <%= post.user.username %> on <%= post.created_at.strftime('%B %e, %Y at %l:%M %P') %></p>
       </div>
       <div class="panel-body">
         <p><%= post.blog_entry.html_safe %></p>
@@ -27,6 +25,3 @@
 
 <%= link_to 'Add Some Wisedom', new_post_path, class: "btn btn-primary" %>
 
-<div class="pull-right">
-  <%= paginate @posts %>
-</div>

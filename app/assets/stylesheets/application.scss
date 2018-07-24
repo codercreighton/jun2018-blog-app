@@ -16,3 +16,41 @@
 
 @import 'bootstrap';
 @import 'bootstrap-sprockets';
+@import url('https://fonts.googleapis.com/css?family=Nanum+Pen+Script|Permanent+Marker');
+
+/*font-family: 'Nanum Pen Script', cursive;
+font-family: 'Permanent Marker', cursive;*/
+body {
+	background-color: #dfeaf2;
+}
+
+h1 {
+	font-family: 'Permanent Marker', cursive;
+}
+
+.panel-title {
+	font-size: 35px;
+	font-family: 'Nanum Pen Script', cursive;
+	text-align: center;
+}
+
+.panel-creator{
+	font-size: 25px;
+	font-family: 'Nanum Pen Script', cursive;
+	text-align: center;
+}
+.panel-body {
+	font-size: 25px;
+	font-family: 'Nanum Pen Script', cursive;
+	text-align: center;
+}
+
+.panel-footer{
+	text-align: right;
+}
+
+
+.show-pic{
+	height: 200px;
+	width: 200px;
+}
